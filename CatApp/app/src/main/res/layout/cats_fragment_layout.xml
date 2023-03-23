@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ScrollView
+        android:id="@+id/scrollable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true">
+        <LinearLayout
+            android:id="@+id/linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true">
+            <ImageView
+                android:id="@+id/imageView_0"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:contentDescription="Cat picture"
+                app:srcCompat="@drawable/cat_0" />
+
+            <ImageView
+                android:id="@+id/imageView_1"
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:contentDescription="Cat picture"
+                app:srcCompat="@drawable/cat_1" />
+            <ImageView
+                android:id="@+id/imageView_2"
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:contentDescription="Cat picture"
+                app:srcCompat="@drawable/cat_2" />
+            <ImageView
+                android:id="@+id/imageView_3"
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:contentDescription="Cat picture"
+                app:srcCompat="@drawable/cat_3" />
+            <ImageView
+                android:id="@+id/imageView_4"
+                android:layout_width="match_parent"
+                android:layout_height="172dp"
+                android:contentDescription="Cat picture"
+                app:srcCompat="@drawable/cat_4" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>
+
