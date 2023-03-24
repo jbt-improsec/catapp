@@ -44,7 +44,6 @@ class CatsFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val httpClient = OkHttpClient()
         cameraExecutor = Executors.newSingleThreadExecutor()
         try {
             lifecycleScope.launch {
@@ -79,7 +78,7 @@ class CatsFragment: Fragment() {
                                     .build()
                                 val request = Request.Builder()
                                     //replace url with the uvicorn server URL
-                                    .url("http://192.168.0.127:8000/catpics/addpics/")
+                                    .url("http://192.168.69.233:8000/catpics/addpics/")
                                     .post(formBody)
                                     .build()
 
