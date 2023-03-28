@@ -6,7 +6,7 @@
 - Change the IP addresse for the HTTP POST request in the source code. 
   - Path to file: CatApp\app\src\main\java\com\example\catapp\Fragments\CatsFragment.kt
     - Change the IP addresse and port in line 105
-    ![screencap of CatsFragment.kt](https://github.com/jbt-improsec/catapp/tree/main/readme_resources/catapp_screencap_0.png?raw=true)
+    ![](https://github.com/jbt-improsec/catapp/tree/main/readme_resources/catapp_screencap_0.png?raw=true)
 
 ### Installation
 - Download android studio https://developer.android.com/studio
