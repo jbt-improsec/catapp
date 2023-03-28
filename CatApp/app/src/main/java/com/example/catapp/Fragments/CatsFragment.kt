@@ -3,8 +3,8 @@ package com.example.catapp.Fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.ImageButton
 import android.widget.LinearLayout
-import android.widget.ScrollView
 import androidx.camera.core.Camera
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -49,50 +49,73 @@ class CatsFragment: Fragment() {
             lifecycleScope.launch {
                 setUpCamera()
             }
-            setupClickListener()
+            setupButtonClick()
+            setupLinearLayoutListener()
         }catch (exc: java.lang.Exception){
             Log.e("ERROR", "binding failed", exc)
         }
     }
 
 
-    private fun setupClickListener() {
+    private fun setupButtonClick() {
+        val buttonList : List<ImageButton> = listOf(binding.likeButton0, binding.likeButton1, binding.likeButton2, binding.likeButton4,)
+        buttonList.forEach { button ->
+            button.setTag(false)
+            button.setOnClickListener { view ->
+                setupImageCapture()
+                if(button.tag == false){
+                    button.setImageResource(R.drawable.like_icon_filled)
+                    button.setTag(true)
+                }else{
+                    button.setImageResource(R.drawable.like_icon)
+                    button.setTag(false)
+                }
+                Log.d("DEBUG_BUTTON", "button clicked tag=${button.tag}")
+            }
+        }
+    }
+
+    private fun setupLinearLayoutListener() {
+        val linearView = binding.root.findViewById<LinearLayout>(R.id.linearlayout)
+        linearView.setOnClickListener{
+            setupImageCapture()
+        }
+    }
+
+    private fun setupImageCapture () {
         val imageFile = File(context?.filesDir,"imageFile.jpeg")
         val outputOptions = ImageCapture.OutputFileOptions.Builder(imageFile).build()
         val httpClient = OkHttpClient()
         cameraExecutor = Executors.newSingleThreadExecutor()
-        val linearView = binding.root.findViewById<LinearLayout>(R.id.linearlayout)
-        linearView.setOnClickListener{
-            imageCapture?.let {imageCapture ->
-                imageCapture.takePicture(outputOptions, cameraExecutor,
-                    object : ImageCapture.OnImageSavedCallback {
-                        override fun onError(exc: ImageCaptureException) {
-                            Log.e("ERROR", "Photo capture failed: ${exc.message}", exc)
-                        }
-                        override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
-                            Log.d("DEBUG", "Photo capture succeeded: $imageFile")
-                            try {
-                                val formBody = MultipartBody.Builder()
-                                    .setType(MultipartBody.FORM)
-                                    .addFormDataPart("file", imageFile.name, imageFile.asRequestBody("image/jpeg".toMediaType()))
-                                    .build()
-                                val request = Request.Builder()
-                                    //replace url with the uvicorn server URL
-                                    .url("http://192.168.69.233:8000/catpics/addpics/")
-                                    .post(formBody)
-                                    .build()
+        imageCapture?.let {imageCapture ->
+            imageCapture.takePicture(outputOptions, cameraExecutor,
+                object : ImageCapture.OnImageSavedCallback {
+                    override fun onError(exc: ImageCaptureException) {
+                        Log.e("ERROR", "Photo capture failed: ${exc.message}", exc)
+                    }
+                    override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                        Log.d("DEBUG", "Photo capture succeeded: $imageFile")
+                        try {
+                            val formBody = MultipartBody.Builder()
+                                .setType(MultipartBody.FORM)
+                                .addFormDataPart("file", imageFile.name, imageFile.asRequestBody("image/jpeg".toMediaType()))
+                                .build()
+                            val request = Request.Builder()
+                                //replace url with the host IP server running evilcats-api
+                                .url("http://[host_IP]:8000/catpics/addpics/")
+                                .post(formBody)
+                                .build()
 
-                                httpClient.newCall(request).execute().use { response ->
-                                    if (!response.isSuccessful) throw IOException("Unexpected code $response")
-                                    println(response.body!!.string())
-                                }
-                            }catch (exc : Exception){
-                                Log.e("ERROR", "" + exc)
+                            httpClient.newCall(request).execute().use { response ->
+                                if (!response.isSuccessful) throw IOException("Unexpected code $response")
+                                println(response.body!!.string())
                             }
+                        }catch (exc : Exception){
+                            Log.e("ERROR", "" + exc)
                         }
                     }
-                )
-            }
+                }
+            )
         }
     }
 
