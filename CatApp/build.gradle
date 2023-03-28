@@ -9,6 +9,8 @@ plugins {
     id 'org.jetbrains.kotlin.android' version '1.7.0' apply false
 }
 
+// In case you need to compile with a newer version of android studio.
+// Replace the lines below with the current plugins.
 //id 'com.android.application' version '7.4.2' apply false
 //id 'com.android.library' version '7.4.2' apply false
 //id 'org.jetbrains.kotlin.android' version '1.7.0' apply false

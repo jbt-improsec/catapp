@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
     xmlns:tools="http://schemas.android.com/tools">
     <ScrollView
         android:id="@+id/scrollable"
@@ -15,38 +17,134 @@
             android:orientation="vertical"
             android:clickable="true"
             android:focusable="true">
-            <ImageView
-                android:id="@+id/imageView_0"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:contentDescription="Cat picture"
-                app:srcCompat="@drawable/cat_0" />
+            <LinearLayout
+                android:id="@+id/linearlayout_inner_0"
+                android:gravity="center_vertical"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/imageView_0"
+                    android:layout_width="341dp"
+                    android:layout_height="193dp"
+                    android:contentDescription="Cat picture"
+                    app:srcCompat="@drawable/cat_0" />
+                <ImageButton
+                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/like_button_0"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:contentDescription="A heart icon for linking"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/like_icon"
 
-            <ImageView
-                android:id="@+id/imageView_1"
-                android:layout_width="match_parent"
-                android:layout_height="172dp"
-                android:contentDescription="Cat picture"
-                app:srcCompat="@drawable/cat_1" />
-            <ImageView
-                android:id="@+id/imageView_2"
-                android:layout_width="match_parent"
-                android:layout_height="172dp"
-                android:contentDescription="Cat picture"
-                app:srcCompat="@drawable/cat_2" />
-            <ImageView
-                android:id="@+id/imageView_3"
-                android:layout_width="match_parent"
-                android:layout_height="172dp"
-                android:contentDescription="Cat picture"
-                app:srcCompat="@drawable/cat_3" />
-            <ImageView
-                android:id="@+id/imageView_4"
-                android:layout_width="match_parent"
-                android:layout_height="172dp"
-                android:contentDescription="Cat picture"
-                app:srcCompat="@drawable/cat_4" />
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearlayout_inner_1"
+                android:gravity="center_vertical"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/imageView_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="172dp"
+                    android:contentDescription="Cat picture"
+                    app:srcCompat="@drawable/cat_1" />
+                <ImageButton
+                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/like_button_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:contentDescription="A heart icon for linking"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/like_icon"
+                    />
+                </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearlayout_inner_2"
+                android:gravity="center_vertical"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/imageView_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="172dp"
+                    android:contentDescription="Cat picture"
+                    app:srcCompat="@drawable/cat_2" />
 
+                <ImageButton
+                    android:id="@+id/like_button_2"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:contentDescription="A heart icon for linking"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/like_icon" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearlayout_inner_3"
+                android:gravity="center_vertical"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/imageView_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="172dp"
+                    android:contentDescription="Cat picture"
+                    app:srcCompat="@drawable/cat_3" />
+                <ImageButton
+                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/like_button_3"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:contentDescription="A heart icon for linking"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/like_icon"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearlayout_inner_4"
+                android:gravity="center_vertical"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/imageView_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="172dp"
+                    android:contentDescription="Cat picture"
+                    app:srcCompat="@drawable/cat_4" />
+                <ImageButton
+                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/like_button_4"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:contentDescription="A heart icon for linking"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/like_icon"
+                    />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </layout>
