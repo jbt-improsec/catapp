@@ -20,4 +20,5 @@ The purpose of the app is to show users the importance android permissions and t
 
 ## Usage
 With each click on the screen the app wil send pictures to the evilcats-api.
+
 <img src="./readme_resources/catapp_screencap_1.jpeg" style="height: 500px; width:300px;"/>
