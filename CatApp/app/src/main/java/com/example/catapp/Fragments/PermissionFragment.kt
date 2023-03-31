@@ -22,8 +22,6 @@ import com.example.catapp.R
 private var PERMISSIONS_REQUIRED = arrayOf(
     Manifest.permission.CAMERA,
     Manifest.permission.INTERNET
-//    Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//    Manifest.permission.READ_EXTERNAL_STORAGE,
 )
 
 class PermissionFragment: Fragment() {
@@ -37,15 +35,6 @@ class PermissionFragment: Fragment() {
             permissionList.add(Manifest.permission.READ_EXTERNAL_STORAGE)
             PERMISSIONS_REQUIRED = permissionList.toTypedArray()
         }
-//        if(Build.VERSION.SDK_INT >= 30){
-//            val uri = Uri.parse("package:${BuildConfig.APPLICATION_ID}")
-////            val intent = Intent(android.provider.Settings.ACTION_MANAGE_ALL_FILES_ACCESS_PERMISSION , uri)
-//            startActivity(
-//                Intent(
-//                    Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION,
-//                    uri
-//                ))
-//        }
 
         if (!hasPermissions(requireContext())) {
             // Request camera-related permissions
